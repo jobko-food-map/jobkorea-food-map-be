@@ -1,5 +1,6 @@
 package com.food.map.test;
 
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,10 @@ public class TestService {
 
     public TestEntity get( Long id){
         return repository.findById(id).orElse(null);
+    }
+
+    public List<TestEntity> getAll(){
+        return repository.findAll();
     }
 
     public void save( String name){
