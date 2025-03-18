@@ -2,6 +2,7 @@ package com.food.map.place.controller;
 
 import com.food.map.place.dto.Place;
 import com.food.map.place.dto.PlaceReq;
+import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.service.PlaceService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:*")
 public class PlaceController {
     private final PlaceService service;
+    private final PlaceMapper mapper;
 
     @GetMapping("/v1/place")
     public Place getPlace(@RequestParam Long id){
@@ -31,9 +33,7 @@ public class PlaceController {
 
     @PostMapping("/v1/place")
     public Place save(@RequestBody PlaceReq req){
-        var place = Place.builder()
-            .placeName(req.placeName())
-            .build();
+        var place = mapper.to(req);
 
        return service.save(place);
     }

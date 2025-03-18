@@ -8,6 +8,18 @@ import lombok.Builder;
 public record PlaceReq(
 
     @Schema(description = "플레이스 이름", example = "플레이스1")
-    String placeName
+    String placeName,
+
+    @Schema(description = "설명", example = "디스크립션1")
+    String placeDesc,
+
+    @Schema(description = "카테고리", example = "맛집1")
+    String category,
+
+    @Schema(description = "location_x", example ="x축")
+    String locationX,
+
+    @Schema(description = "location_y", example ="y축")
+    String locationY
 ){
 }

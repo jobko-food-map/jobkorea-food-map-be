@@ -25,4 +25,17 @@ public class PlaceEntity {
 
 	@Column(name = "place_name")
 	private String placeName;
+
+	@Column(name = "place_desc")
+	private String placeDesc;
+
+	@Column(name = "category")
+	private String category;
+
+	@Column(name = "location_x")
+	private String locationX;
+
+	@Column(name = "location_y")
+	private String locationY;
+
 }
