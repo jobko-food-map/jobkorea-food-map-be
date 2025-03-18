@@ -1,6 +1,7 @@
 package com.food.map.place.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
@@ -18,10 +19,13 @@ public record Place(
     @Schema(name = "카테고리", example = "맛집1")
     String category,
 
-    @Schema(name = "location_x", example ="x축")
+    @Schema(name = "x축", example ="111")
     String locationX,
 
-    @Schema(name = "location_y", example ="y축")
-    String locationY
+    @Schema(name = "y축", example ="222")
+    String locationY,
+
+    @Schema(name = "생성일", example ="2022-01-02 00:00:00")
+    LocalDateTime createdAt
 ){
 }

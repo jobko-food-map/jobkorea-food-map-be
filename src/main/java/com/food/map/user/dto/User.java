@@ -1,6 +1,7 @@
 package com.food.map.user.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
@@ -13,6 +14,9 @@ public record User(
     String userId,
 
     @Schema(description = "유저 이름", example = "나다")
-    String userName
+    String userName,
+
+    @Schema(name = "생성일", example ="2022-01-02 00:00:00")
+    LocalDateTime createdAt
 ){
 }

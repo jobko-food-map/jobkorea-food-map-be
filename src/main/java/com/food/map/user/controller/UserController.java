@@ -2,6 +2,7 @@ package com.food.map.user.controller;
 
 import com.food.map.user.dto.User;
 import com.food.map.user.dto.UserReq;
+import com.food.map.user.mapper.UserMapper;
 import com.food.map.user.service.UserService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:*")
 public class UserController {
     private final UserService service;
+    private final UserMapper mapper;
 
     @GetMapping("/v1/user")
     public User getUser(@RequestParam Long id){
@@ -31,10 +33,7 @@ public class UserController {
 
     @PostMapping("/v1/user")
     public User save(@RequestBody UserReq req){
-        var user = User.builder()
-            .userId(req.userId())
-            .userName(req.userName())
-            .build();
+        var user = mapper.to(req);
 
        return service.save(user);
     }

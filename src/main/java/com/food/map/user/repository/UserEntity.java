@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,4 +29,7 @@ public class UserEntity {
 
 	@Column(name = "user_name")
 	private String userName;
+
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
 }

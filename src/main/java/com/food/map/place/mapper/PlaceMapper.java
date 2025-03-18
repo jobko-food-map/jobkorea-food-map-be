@@ -13,5 +13,6 @@ public interface PlaceMapper {
     Place to(PlaceEntity source);
 
     @Mapping(ignore = true, target = "id")
+    @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
     Place to(PlaceReq source);
 }

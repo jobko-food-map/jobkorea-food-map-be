@@ -1,6 +1,7 @@
 package com.food.map.user.mapper;
 
 import com.food.map.user.dto.User;
+import com.food.map.user.dto.UserReq;
 import com.food.map.user.repository.UserEntity;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ public class UserMapperImpl implements UserMapper {
         userEntity.id( source.id() );
         userEntity.userId( source.userId() );
         userEntity.userName( source.userName() );
+        userEntity.createdAt( source.createdAt() );
 
         return userEntity.build();
     }
@@ -40,6 +42,23 @@ public class UserMapperImpl implements UserMapper {
         }
         user.userId( source.getUserId() );
         user.userName( source.getUserName() );
+        user.createdAt( source.getCreatedAt() );
+
+        return user.build();
+    }
+
+    @Override
+    public User to(UserReq source) {
+        if ( source == null ) {
+            return null;
+        }
+
+        User.UserBuilder user = User.builder();
+
+        user.userId( source.userId() );
+        user.userName( source.userName() );
+
+        user.createdAt( java.time.LocalDateTime.now() );
 
         return user.build();
     }
