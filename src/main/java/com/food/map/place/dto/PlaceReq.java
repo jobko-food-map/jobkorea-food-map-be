@@ -1,5 +1,6 @@
 package com.food.map.place.dto;
 
+import com.food.map.place.enums.Category;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
@@ -13,8 +14,8 @@ public record PlaceReq(
     @Schema(description = "설명", example = "디스크립션1")
     String placeDesc,
 
-    @Schema(description = "카테고리", example = "맛집1")
-    String category,
+    @Schema(description = "카테고리", example = "FOOD")
+    Category category,
 
     @Schema(description = "location_x", example ="x축")
     String locationX,

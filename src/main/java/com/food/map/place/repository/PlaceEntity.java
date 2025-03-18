@@ -1,7 +1,10 @@
 package com.food.map.place.repository;
 
+import com.food.map.place.enums.Category;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,8 +33,9 @@ public class PlaceEntity {
 	@Column(name = "place_desc")
 	private String placeDesc;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "category")
-	private String category;
+	private Category category;
 
 	@Column(name = "location_x")
 	private String locationX;

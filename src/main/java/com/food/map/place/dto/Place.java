@@ -1,5 +1,6 @@
 package com.food.map.place.dto;
 
+import com.food.map.place.enums.Category;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
 import lombok.Builder;
@@ -16,8 +17,8 @@ public record Place(
     @Schema(name = "설명", example = "디스크립션1")
     String placeDesc,
 
-    @Schema(name = "카테고리", example = "맛집1")
-    String category,
+    @Schema(name = "카테고리", example = "FOOD")
+    Category category,
 
     @Schema(name = "x축", example ="111")
     String locationX,

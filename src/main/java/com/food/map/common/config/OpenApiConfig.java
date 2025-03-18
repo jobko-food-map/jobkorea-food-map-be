@@ -6,8 +6,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 import org.springframework.context.annotation.Configuration;
 
 @OpenAPIDefinition(info = @Info(
-		title = "테스트 서비스",
-		description = "테스트 서비스에 대해 설명하는 문서입니다.",
+		title = "잡코 푸드 서비스",
+		description = "잡코 푸드 서비스에 대해 설명하는 문서입니다.",
 		version = "1.0"
 ),
 	servers = {

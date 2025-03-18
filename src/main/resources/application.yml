@@ -1,9 +1,11 @@
 spring:
   datasource:
-    url: jdbc:postgresql://ep-divine-haze-a5729o21-pooler.us-east-2.aws.neon.tech/food?sslmode=require
-    username: neondb_owner
-    password: npg_BIEe3MDv4smZ
-    driver-class-name: org.postgresql.Driver
+    hikari:
+      jdbc-url: jdbc:postgresql://ep-divine-haze-a5729o21-pooler.us-east-2.aws.neon.tech/food?sslmode=require
+      username: neondb_owner
+      password: npg_BIEe3MDv4smZ
+      driver-class-name: org.postgresql.Driver
+      pool-name: Hikari Connection Pool
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
