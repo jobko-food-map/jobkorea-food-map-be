@@ -14,19 +14,19 @@ public record Place(
     @Schema(description = "플레이스 이름", example = "플레이스1")
     String placeName,
 
-    @Schema(name = "설명", example = "디스크립션1")
+    @Schema(description = "설명", example = "디스크립션1")
     String placeDesc,
 
-    @Schema(name = "카테고리", example = "FOOD")
+    @Schema(description = "카테고리", example = "FOOD")
     Category category,
 
-    @Schema(name = "x축", example ="111")
+    @Schema(description = "x축", example ="111")
     String locationX,
 
-    @Schema(name = "y축", example ="222")
+    @Schema(description = "y축", example ="222")
     String locationY,
 
-    @Schema(name = "생성일", example ="2022-01-02 00:00:00")
+    @Schema(description = "생성일", example ="2022-01-02 00:00:00")
     LocalDateTime createdAt
 ){
 }
