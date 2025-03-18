@@ -1,4 +1,4 @@
-package com.food.map.test;
+package com.food.map.user.repository;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,18 +11,21 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table(name = "test")
+@Table(name = "user")
 @Getter
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TestEntity {
+public class UserEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "user_id")
+	private String userId;
+
+	@Column(name = "user_name")
+	private String userName;
 }
