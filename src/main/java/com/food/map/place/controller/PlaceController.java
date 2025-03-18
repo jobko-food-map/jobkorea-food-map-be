@@ -4,13 +4,14 @@ import com.food.map.place.dto.Place;
 import com.food.map.place.dto.PlaceReq;
 import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.service.PlaceService;
+import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -21,8 +22,8 @@ public class PlaceController {
     private final PlaceService service;
     private final PlaceMapper mapper;
 
-    @GetMapping("/v1/place")
-    public Place getPlace(@RequestParam Long id){
+    @GetMapping("/v1/place/{id}")
+    public Place getPlace(@PathVariable Long id){
         return service.get(id);
     }
 
@@ -32,7 +33,7 @@ public class PlaceController {
     }
 
     @PostMapping("/v1/place")
-    public Place save(@RequestBody PlaceReq req){
+    public Place save(@Valid @RequestBody PlaceReq req){
         var place = mapper.to(req);
 
        return service.save(place);

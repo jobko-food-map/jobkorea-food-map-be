@@ -16,7 +16,7 @@ public record User(
     @Schema(description = "유저 이름", example = "나다")
     String userName,
 
-    @Schema(name = "생성일", example ="2022-01-02 00:00:00")
+    @Schema(description = "생성일", example ="2022-01-02 00:00:00")
     LocalDateTime createdAt
 ){
 }
