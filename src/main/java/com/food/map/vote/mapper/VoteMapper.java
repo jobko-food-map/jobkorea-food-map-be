@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 public interface VoteMapper {
     VoteEntity to(Vote source);
 
+    @Mapping(ignore = true, target = "isApprove")
     Vote to(VoteEntity source);
 
     @Mapping(ignore = true, target = "id")

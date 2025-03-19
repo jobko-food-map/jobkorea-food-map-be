@@ -56,6 +56,7 @@ public class VoteMapperImpl implements VoteMapper {
 
         vote.userId( source.userId() );
         vote.reportId( source.reportId() );
+        vote.isApprove( source.isApprove() );
 
         vote.createdAt( java.time.LocalDateTime.now() );
 

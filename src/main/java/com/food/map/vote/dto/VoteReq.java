@@ -14,6 +14,9 @@ public record VoteReq(
 
     @Min(1)
     @Schema(description = "제보 아이디", example = "1")
-    Long reportId
+    Long reportId,
+
+    @Schema(description = "승인 여부", example = "true")
+    boolean isApprove
 ){
 }

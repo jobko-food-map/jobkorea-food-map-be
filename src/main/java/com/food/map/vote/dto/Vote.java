@@ -11,6 +11,8 @@ public record Vote(
 
     Long reportId,
 
-    LocalDateTime createdAt
+    LocalDateTime createdAt,
+
+    boolean isApprove
 ){
 }

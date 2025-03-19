@@ -14,6 +14,8 @@ public interface ReportMapper {
     Report to(ReportEntity source);
 
     @Mapping(ignore = true, target = "id")
+    @Mapping(ignore = true, target = "approveCount")
+    @Mapping(ignore = true, target = "rejectCount")
     @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
     ReportEntity to(ReportReq source);
 

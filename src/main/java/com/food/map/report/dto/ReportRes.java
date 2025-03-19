@@ -36,6 +36,12 @@ public record ReportRes(
     String lng,
 
     @Schema(description = "제보 생성일", example ="2022-01-02 00:00:00")
-    LocalDateTime createdAt
+    LocalDateTime createdAt,
+
+    @Schema(description = "승인 갯수", example ="1")
+    int approveCount,
+
+    @Schema(description = "거절 갯수", example ="1")
+    int rejectCount
 ){
 }

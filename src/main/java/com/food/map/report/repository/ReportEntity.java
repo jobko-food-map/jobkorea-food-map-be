@@ -51,4 +51,20 @@ public class ReportEntity {
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
+
+	@Column(name = "reject_count")
+	private int rejectCount;
+
+	@Column(name = "approve_count")
+	private int approveCount;
+
+	public void setCount(boolean isApprove){
+		if(isApprove){
+			this.approveCount++;
+			return;
+		}
+
+		this.rejectCount++;
+	}
+
 }

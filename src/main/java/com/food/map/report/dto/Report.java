@@ -22,6 +22,10 @@ public record Report(
 
     String lat,
 
-    String lng
+    String lng,
+
+    int approveCount,
+
+    int rejectCount
 ){
 }

@@ -31,6 +31,8 @@ public class ReportMapperImpl implements ReportMapper {
         reportEntity.lng( source.lng() );
         reportEntity.userId( source.userId() );
         reportEntity.createdAt( source.createdAt() );
+        reportEntity.rejectCount( source.rejectCount() );
+        reportEntity.approveCount( source.approveCount() );
 
         return reportEntity.build();
     }
@@ -52,6 +54,8 @@ public class ReportMapperImpl implements ReportMapper {
         report.category( source.getCategory() );
         report.lat( source.getLat() );
         report.lng( source.getLng() );
+        report.approveCount( source.getApproveCount() );
+        report.rejectCount( source.getRejectCount() );
 
         return report.build();
     }
@@ -93,6 +97,8 @@ public class ReportMapperImpl implements ReportMapper {
         reportRes.lat( source.lat() );
         reportRes.lng( source.lng() );
         reportRes.createdAt( source.createdAt() );
+        reportRes.approveCount( source.approveCount() );
+        reportRes.rejectCount( source.rejectCount() );
 
         return reportRes.build();
     }

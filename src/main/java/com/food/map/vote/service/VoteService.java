@@ -33,7 +33,8 @@ public class VoteService {
             throw new RuntimeException("유저 정보가 없습니다.");
         }
 
-        var findReport = reportRepository.findById(vote.reportId());
+        long reportId = vote.reportId();
+        var findReport = reportRepository.findById(reportId).orElse(null);
         if(ObjectUtils.isEmpty(findReport)){
             throw new RuntimeException("제보 정보가 없습니다.");
         }
@@ -45,6 +46,8 @@ public class VoteService {
 
         var entity = mapper.to(vote);
         repository.save(entity);
+
+        findReport.setCount(vote.isApprove());
 
         return mapper.to(entity);
     }

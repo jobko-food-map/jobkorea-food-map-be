@@ -1,7 +1,6 @@
 package com.food.map.report.service;
 
 
-import com.food.map.place.repository.PlaceRepository;
 import com.food.map.report.dto.Report;
 import com.food.map.report.dto.ReportReq;
 import com.food.map.report.mapper.ReportMapper;
@@ -24,7 +23,6 @@ public class ReportService {
     private final ReportRepository repository;
     private final ReportCustomRepository customRepository;
     private final UserRepository userRepository;
-    private final PlaceRepository placeRepository;
     private final ReportMapper mapper;
     private final ReportRepository reportRepository;
 
