@@ -17,14 +17,14 @@ public record Place(
     @Schema(description = "설명", example = "디스크립션1")
     String placeDesc,
 
-    @Schema(description = "카테고리", example = "FOOD")
+    @Schema(description = "카테고리", example = "ASIAN")
     Category category,
 
-    @Schema(description = "x축", example ="111")
-    String locationX,
+    @Schema(description = "위도", example ="111")
+    String lat,
 
-    @Schema(description = "y축", example ="222")
-    String locationY,
+    @Schema(description = "경도", example ="222")
+    String lng,
 
     @Schema(description = "생성일", example ="2022-01-02 00:00:00")
     LocalDateTime createdAt

@@ -6,8 +6,12 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum Category {
-    FOOD("음식점"),
-    CAFE("카페"),
-    ETC("기타");
+    ASIAN("아시안"),
+    CHINESE("중식"),
+    KOREAN("한식"),
+    WESTERN("양식"),
+    JAPANESE("일식"),
+    DESSERT("디저트");
+
     private final String description;
 }

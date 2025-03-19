@@ -25,8 +25,8 @@ public class PlaceMapperImpl implements PlaceMapper {
         placeEntity.placeName( source.placeName() );
         placeEntity.placeDesc( source.placeDesc() );
         placeEntity.category( source.category() );
-        placeEntity.locationX( source.locationX() );
-        placeEntity.locationY( source.locationY() );
+        placeEntity.lat( source.lat() );
+        placeEntity.lng( source.lng() );
         placeEntity.createdAt( source.createdAt() );
 
         return placeEntity.build();
@@ -44,8 +44,8 @@ public class PlaceMapperImpl implements PlaceMapper {
         place.placeName( source.getPlaceName() );
         place.placeDesc( source.getPlaceDesc() );
         place.category( source.getCategory() );
-        place.locationX( source.getLocationX() );
-        place.locationY( source.getLocationY() );
+        place.lat( source.getLat() );
+        place.lng( source.getLng() );
         place.createdAt( source.getCreatedAt() );
 
         return place.build();
@@ -62,8 +62,8 @@ public class PlaceMapperImpl implements PlaceMapper {
         place.placeName( source.placeName() );
         place.placeDesc( source.placeDesc() );
         place.category( source.category() );
-        place.locationX( source.locationX() );
-        place.locationY( source.locationY() );
+        place.lat( source.lat() );
+        place.lng( source.lng() );
 
         place.createdAt( java.time.LocalDateTime.now() );
 

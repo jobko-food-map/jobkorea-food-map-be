@@ -18,15 +18,15 @@ public record PlaceReq(
     String placeDesc,
 
     @NotNull
-    @Schema(description = "카테고리", example = "FOOD")
+    @Schema(description = "카테고리", example = "ASIAN")
     Category category,
 
     @NotBlank
-    @Schema(description = "location_x", example ="x축")
-    String locationX,
+    @Schema(description = "위도", example ="111")
+    String lat,
 
-    @NotBlank
-    @Schema(description = "location_y", example ="y축")
-    String locationY
+//    @NotBlank
+    @Schema(description = "경도", example ="222")
+    String lng
 ){
 }

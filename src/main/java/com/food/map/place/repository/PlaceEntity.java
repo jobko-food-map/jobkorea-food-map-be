@@ -37,11 +37,11 @@ public class PlaceEntity {
 	@Column(name = "category")
 	private Category category;
 
-	@Column(name = "location_x")
-	private String locationX;
+	@Column(name = "lat")
+	private String lat;
 
-	@Column(name = "location_y")
-	private String locationY;
+	@Column(name = "lng")
+	private String lng;
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
