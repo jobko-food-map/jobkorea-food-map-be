@@ -21,10 +21,6 @@ public class VoteService {
     private final ReportRepository reportRepository;
     private final VoteMapper mapper;
 
-    public long get(long reportId){
-        return repository.countByReportId(reportId);
-    }
-
     @Transactional
     public Vote save(Vote vote){
         String userId = vote.userId();
