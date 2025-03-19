@@ -27,6 +27,9 @@ public class PlaceEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "place_id")
+	private String placeId;
+
 	@Column(name = "place_name")
 	private String placeName;
 

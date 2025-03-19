@@ -14,6 +14,10 @@ public record PlaceReq(
     @Schema(description = "플레이스 이름", example = "플레이스1")
     String placeName,
 
+    @NotBlank
+    @Schema(description = "플레이스 아이디", example = "12312312")
+    String placeId,
+
     @Schema(description = "설명", example = "디스크립션1")
     String placeDesc,
 

@@ -8,8 +8,11 @@ import lombok.Builder;
 @Builder(toBuilder = true)
 @Schema(title = "플레이스 정보")
 public record Place(
-    @Schema(description = "플레이스 번호", example = "1")
+    @Schema(description = "플레이스 시리얼 번호", example = "1")
     Long id,
+
+    @Schema(description = "플레이스 아이디", example = "12312312")
+    String placeId,
 
     @Schema(description = "플레이스 이름", example = "플레이스1")
     String placeName,
