@@ -17,9 +17,8 @@ public class UserService {
     private final UserRepository repository;
     private final UserMapper mapper;
 
-    public User get(Long id){
-        var entity = repository.findById(id)
-            .orElse(null);
+    public User get(String userId){
+        var entity = repository.findByUserId(userId);
         return mapper.to(entity);
     }
 

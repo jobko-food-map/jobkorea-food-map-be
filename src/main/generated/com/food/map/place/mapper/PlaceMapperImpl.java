@@ -2,6 +2,7 @@ package com.food.map.place.mapper;
 
 import com.food.map.place.dto.Place;
 import com.food.map.place.dto.PlaceReq;
+import com.food.map.place.dto.PlaceRes;
 import com.food.map.place.repository.PlaceEntity;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ public class PlaceMapperImpl implements PlaceMapper {
         PlaceEntity.PlaceEntityBuilder placeEntity = PlaceEntity.builder();
 
         placeEntity.id( source.id() );
+        placeEntity.placeId( source.placeId() );
         placeEntity.placeName( source.placeName() );
         placeEntity.placeDesc( source.placeDesc() );
         placeEntity.category( source.category() );
@@ -41,6 +43,7 @@ public class PlaceMapperImpl implements PlaceMapper {
         Place.PlaceBuilder place = Place.builder();
 
         place.id( source.getId() );
+        place.placeId( source.getPlaceId() );
         place.placeName( source.getPlaceName() );
         place.placeDesc( source.getPlaceDesc() );
         place.category( source.getCategory() );
@@ -59,6 +62,7 @@ public class PlaceMapperImpl implements PlaceMapper {
 
         Place.PlaceBuilder place = Place.builder();
 
+        place.placeId( source.placeId() );
         place.placeName( source.placeName() );
         place.placeDesc( source.placeDesc() );
         place.category( source.category() );
@@ -68,5 +72,25 @@ public class PlaceMapperImpl implements PlaceMapper {
         place.createdAt( java.time.LocalDateTime.now() );
 
         return place.build();
+    }
+
+    @Override
+    public PlaceRes toRes(Place source) {
+        if ( source == null ) {
+            return null;
+        }
+
+        PlaceRes.PlaceResBuilder placeRes = PlaceRes.builder();
+
+        placeRes.id( source.id() );
+        placeRes.placeId( source.placeId() );
+        placeRes.placeName( source.placeName() );
+        placeRes.placeDesc( source.placeDesc() );
+        placeRes.category( source.category() );
+        placeRes.lat( source.lat() );
+        placeRes.lng( source.lng() );
+        placeRes.createdAt( source.createdAt() );
+
+        return placeRes.build();
     }
 }

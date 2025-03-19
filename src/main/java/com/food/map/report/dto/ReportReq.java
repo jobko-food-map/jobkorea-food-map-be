@@ -1,4 +1,4 @@
-package com.food.map.place.dto;
+package com.food.map.report.dto;
 
 import com.food.map.place.enums.Category;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -7,16 +7,19 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
-@Schema(title = "플레이스 정보")
-public record PlaceReq(
+@Schema(title = "제보 정보")
+public record ReportReq(
 
     @NotBlank
-    @Schema(description = "플레이스 이름", example = "플레이스1")
-    String placeName,
+    @Schema(description = "유저 아이디", example = "유저2")
+    String userId,
 
     @NotBlank
     @Schema(description = "플레이스 아이디", example = "12312312")
     String placeId,
+
+    @Schema(description = "이름", example = "이름1")
+    String placeName,
 
     @Schema(description = "설명", example = "디스크립션1")
     String placeDesc,

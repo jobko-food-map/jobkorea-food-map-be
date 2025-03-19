@@ -1,7 +1,7 @@
 package com.food.map.place.controller;
 
-import com.food.map.place.dto.Place;
 import com.food.map.place.dto.PlaceReq;
+import com.food.map.place.dto.PlaceRes;
 import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.service.PlaceService;
 import jakarta.validation.Valid;
@@ -23,19 +23,24 @@ public class PlaceController {
     private final PlaceMapper mapper;
 
     @GetMapping("/v1/place/{id}")
-    public Place getPlace(@PathVariable Long id){
-        return service.get(id);
+    public PlaceRes getPlace(@PathVariable Long id){
+        var place =  service.get(id);
+        return mapper.toRes(place);
     }
 
     @GetMapping("/v1/all/place")
-    public List<Place> getAllPlace(){
-        return service.getAll();
+    public List<PlaceRes> getAllPlace(){
+        var list = service.getAll();
+        return list.stream()
+            .map(mapper::toRes)
+            .toList();
     }
 
     @PostMapping("/v1/place")
-    public Place save(@Valid @RequestBody PlaceReq req){
+    public PlaceRes save(@Valid @RequestBody PlaceReq req){
         var place = mapper.to(req);
+        var save = service.save(place);
 
-       return service.save(place);
+        return mapper.toRes(save);
     }
 }

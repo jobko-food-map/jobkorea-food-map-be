@@ -1,12 +1,16 @@
-package com.food.map.place.dto;
+package com.food.map.report.dto;
 
 import com.food.map.place.enums.Category;
 import java.time.LocalDateTime;
 import lombok.Builder;
 
 @Builder(toBuilder = true)
-public record Place(
+public record Report(
     Long id,
+
+    LocalDateTime createdAt,
+
+    String userId,
 
     String placeId,
 
@@ -18,8 +22,6 @@ public record Place(
 
     String lat,
 
-    String lng,
-
-    LocalDateTime createdAt
+    String lng
 ){
 }
