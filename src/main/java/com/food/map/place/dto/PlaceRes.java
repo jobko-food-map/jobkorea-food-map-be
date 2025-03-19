@@ -30,6 +30,9 @@ public record PlaceRes(
     String lng,
 
     @Schema(description = "생성일", example ="2022-01-02 00:00:00")
-    LocalDateTime createdAt
+    LocalDateTime createdAt,
+
+    @Schema(description = "승인 여부", example ="false")
+    Boolean isApprove
 ){
 }

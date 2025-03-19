@@ -1,17 +1,18 @@
 package com.food.map.place.controller;
 
+import com.food.map.common.PageResponse;
 import com.food.map.place.dto.PlaceReq;
 import com.food.map.place.dto.PlaceRes;
 import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.service.PlaceService;
 import jakarta.validation.Valid;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -29,11 +30,13 @@ public class PlaceController {
     }
 
     @GetMapping("/v1/all/place")
-    public List<PlaceRes> getAllPlace(){
-        var list = service.getAll();
-        return list.stream()
-            .map(mapper::toRes)
-            .toList();
+    public PageResponse<PlaceRes> getAllPlace(
+        @RequestParam int pageNo,
+        @RequestParam int pageSize,
+        @RequestParam boolean isApprove
+    ){
+        var list = service.findAll(pageNo, pageSize, isApprove);
+        return PageResponse.of(list, mapper::toRes);
     }
 
     @PostMapping("/v1/place")

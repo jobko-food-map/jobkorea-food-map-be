@@ -2,10 +2,13 @@ package com.food.map.place.service;
 
 import com.food.map.place.dto.Place;
 import com.food.map.place.mapper.PlaceMapper;
+import com.food.map.place.repository.PlaceCustomRepository;
 import com.food.map.place.repository.PlaceRepository;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.ObjectUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(readOnly = true)
 public class PlaceService {
     private final PlaceRepository repository;
+    private final PlaceCustomRepository customRepository;
     private final PlaceMapper mapper;
 
     public Place get(Long id){
@@ -23,11 +27,15 @@ public class PlaceService {
         return mapper.to(entity);
     }
 
-    public List<Place> getAll(){
-        var entities = repository.findAll();
-        return entities.stream()
+    public Page<Place> findAll(int pageNo, int pageSize, boolean isApprove){
+        var pageable = PageRequest.of(pageNo, pageSize);
+        var entities = customRepository.findAll(pageable, isApprove);
+        var content = entities.getContent()
+            .stream()
             .map(mapper::to)
             .toList();
+
+        return PageableExecutionUtils.getPage(content, pageable, entities::getTotalElements);
     }
 
     @Transactional

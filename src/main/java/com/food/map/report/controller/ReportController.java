@@ -22,8 +22,8 @@ public class ReportController {
     private final ReportService service;
     private final ReportMapper mapper;
 
-    @GetMapping("/v1/report")
-    public PageResponse<ReportRes> getReport(@RequestParam int pageNo, int pageSize){
+    @GetMapping("/v1/all/report")
+    public PageResponse<ReportRes> getReport(@RequestParam int pageNo, @RequestParam int pageSize){
         var list = service.findAll(pageNo, pageSize);
         return PageResponse.of(list, mapper::toRes);
     }

@@ -31,6 +31,9 @@ public record PlaceReq(
 
     @NotBlank
     @Schema(description = "경도", example ="222")
-    String lng
+    String lng,
+
+    @Schema(description = "승인 여부", example ="false")
+    Boolean isApprove
 ){
 }

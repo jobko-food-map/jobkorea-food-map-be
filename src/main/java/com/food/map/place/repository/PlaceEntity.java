@@ -48,4 +48,7 @@ public class PlaceEntity {
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
+
+	@Column(name = "is_approve")
+	private Boolean isApprove;
 }

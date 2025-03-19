@@ -20,6 +20,8 @@ public record Place(
 
     String lng,
 
-    LocalDateTime createdAt
+    LocalDateTime createdAt,
+
+    Boolean isApprove
 ){
 }
