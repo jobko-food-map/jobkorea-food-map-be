@@ -17,6 +17,7 @@ public class ReportCustomRepository extends QuerydslRepositorySupport {
 
     public Page<ReportEntity> findAll(Pageable pageable){
         var query = from(qReportEntity)
+            .where(qReportEntity.isDisplay.eq(true))
             .orderBy(qReportEntity.createdAt.desc());
 
         var paging = getQuerydsl().applyPagination(pageable, query).fetch();

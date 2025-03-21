@@ -9,13 +9,12 @@ import org.mapstruct.Mapping;
 
 @Mapper
 public interface ReportMapper {
-    ReportEntity to(Report source);
-
     Report to(ReportEntity source);
 
     @Mapping(ignore = true, target = "id")
     @Mapping(ignore = true, target = "approveCount")
     @Mapping(ignore = true, target = "rejectCount")
+    @Mapping(ignore = true, target = "isDisplay")
     @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
     ReportEntity to(ReportReq source);
 

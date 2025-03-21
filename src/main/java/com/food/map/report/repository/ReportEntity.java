@@ -23,6 +23,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReportEntity {
 
+	private static final int MAX_THRESHOLD = 2;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -58,6 +60,9 @@ public class ReportEntity {
 	@Column(name = "approve_count")
 	private int approveCount;
 
+	@Column(name = "display")
+	private boolean isDisplay;
+
 	public void setCount(boolean isApprove){
 		if(isApprove){
 			this.approveCount++;
@@ -67,4 +72,15 @@ public class ReportEntity {
 		this.rejectCount++;
 	}
 
+	public void notDisplay(){
+		this.isDisplay = false;
+	}
+
+	public boolean getApproveThreshold(boolean isApprove){
+		return isApprove && Math.subtractExact(this.approveCount, this.rejectCount) >= MAX_THRESHOLD;
+	}
+
+	public boolean getRejectThreshold(boolean isApprove){
+		return !isApprove && Math.subtractExact(this.rejectCount, this.approveCount) >= MAX_THRESHOLD;
+	}
 }
