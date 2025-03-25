@@ -33,7 +33,7 @@ public class UserService {
     public User save(User user){
         var findUser = repository.findByUserId(user.userId());
         if(ObjectUtils.isNotEmpty(findUser)){
-            throw new RuntimeException("이미 있는 유저 입니다.");
+            return mapper.to(findUser);
         }
 
         var entity = mapper.to(user);
