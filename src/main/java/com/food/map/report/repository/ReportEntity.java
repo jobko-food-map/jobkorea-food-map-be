@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReportEntity {
 
-	private static final int MAX_THRESHOLD = 2;
+	private static final int MAX_THRESHOLD = 1;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
