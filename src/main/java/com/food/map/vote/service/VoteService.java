@@ -39,7 +39,7 @@ public class VoteService {
             throw new RuntimeException("제보 정보가 없습니다.");
         }
 
-        var findVote = repository.findByUserId(userId);
+        var findVote = repository.findByUserIdAndReportId(userId, reportId);
         if(ObjectUtils.isNotEmpty(findVote)){
             throw new RuntimeException("이미 투표 했습니다.");
         }
