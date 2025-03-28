@@ -37,6 +37,11 @@ public class ReportService {
         return PageableExecutionUtils.getPage(content, pageable, entities::getTotalElements);
     }
 
+    public Report find(Long reportId){
+        var entity = reportRepository.findById(reportId).orElse(null);
+        return mapper.to(entity);
+    }
+
     @Transactional
     public Report save(ReportReq report){
         var findUser = userRepository.findByUserId(report.userId());
