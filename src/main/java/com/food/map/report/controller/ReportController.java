@@ -36,9 +36,9 @@ public class ReportController {
         return mapper.toRes(report);
     }
 
-    @GetMapping("/v1/{reportId}/report")
-    public ReportRes get(@PathVariable Long reportId){
-        var res = service.find(reportId);
+    @GetMapping("/v1/{id}/report")
+    public ReportRes get(@PathVariable Long id){
+        var res = service.find(id);
         return mapper.toRes(res);
     }
 }
