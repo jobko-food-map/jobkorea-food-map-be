@@ -22,9 +22,9 @@ public class UserController {
     private final UserService service;
     private final UserMapper mapper;
 
-    @GetMapping("/v1/user/{userId}")
-    public UserRes getUser(@PathVariable String userId){
-        var user = service.get(userId);
+    @GetMapping("/v1/user/{id}")
+    public UserRes getUser(@PathVariable String id){
+        var user = service.get(id);
         return mapper.toRes(user);
     }
 
