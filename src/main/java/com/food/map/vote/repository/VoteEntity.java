@@ -32,4 +32,7 @@ public class VoteEntity {
 
 	@Column(name = "created_at")
 	private LocalDateTime createdAt;
+
+	@Column(name = "approve")
+	private boolean isApprove;
 }
