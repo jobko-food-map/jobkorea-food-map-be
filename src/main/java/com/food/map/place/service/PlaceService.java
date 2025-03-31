@@ -4,6 +4,7 @@ import com.food.map.place.dto.Place;
 import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.repository.PlaceCustomRepository;
 import com.food.map.place.repository.PlaceRepository;
+import com.food.map.report.repository.ReportRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ public class PlaceService {
     private final PlaceRepository repository;
     private final PlaceCustomRepository customRepository;
     private final PlaceMapper mapper;
+    private final ReportRepository reportRepository;
 
     public Place get(Long id){
         var entity = repository.findById(id)
@@ -49,5 +51,21 @@ public class PlaceService {
         repository.save(entity);
 
         return mapper.to(entity);
+    }
+
+    @Transactional
+    public void resurrection(long id){
+        var findPlace = repository.findById(id).orElse(null);
+        if(ObjectUtils.isEmpty(findPlace) || findPlace.getIsApprove()){
+            throw new RuntimeException("부활시킬 수 없는 장소 입니다.");
+        }
+
+        var findReport = reportRepository.findByPlaceId(findPlace.getPlaceId());
+        if(ObjectUtils.isEmpty(findReport) || findReport.isDisplay()){
+            throw new RuntimeException("부활시킬 수 없는 제보 입니다.");
+        }
+
+        findReport.resurrection();
+        repository.deleteById(id);
     }
 }

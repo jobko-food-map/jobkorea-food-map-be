@@ -83,4 +83,10 @@ public class ReportEntity {
 	public boolean getRejectThreshold(boolean isApprove){
 		return !isApprove && Math.subtractExact(this.rejectCount, this.approveCount) >= MAX_THRESHOLD;
 	}
+
+	public void resurrection(){
+		this.approveCount = 0;
+		this.rejectCount = 0;
+		this.isDisplay = true;
+	}
 }
