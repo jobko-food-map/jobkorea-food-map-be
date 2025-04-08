@@ -5,6 +5,7 @@ import com.food.map.place.mapper.PlaceMapper;
 import com.food.map.place.repository.PlaceCustomRepository;
 import com.food.map.place.repository.PlaceRepository;
 import com.food.map.report.repository.ReportRepository;
+import java.util.Collections;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
@@ -27,6 +28,16 @@ public class PlaceService {
         var entity = repository.findById(id)
             .orElse(null);
         return mapper.to(entity);
+    }
+
+    public Place getRandom(){
+        var entities = repository.findAll();
+        if(ObjectUtils.isEmpty(entities)){
+            return null;
+        }
+
+        Collections.shuffle(entities);
+        return mapper.to(entities.get(0));
     }
 
     public Page<Place> findAll(int pageNo, int pageSize, boolean isApprove){

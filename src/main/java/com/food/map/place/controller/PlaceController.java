@@ -30,6 +30,12 @@ public class PlaceController {
         return mapper.toRes(place);
     }
 
+    @GetMapping("/v1/random")
+    public PlaceRes getPlace(){
+        var place =  service.getRandom();
+        return mapper.toRes(place);
+    }
+
     @GetMapping("/v1/all/place")
     public PageResponse<PlaceRes> getAllPlace(
         @RequestParam int pageNo,
