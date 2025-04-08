@@ -30,7 +30,7 @@ public class PlaceService {
         return mapper.to(entity);
     }
 
-    public Place getRandom(){
+    public Place getRandomPlace(){
         var entities = repository.findByIsApprove(true);
         if(ObjectUtils.isEmpty(entities)){
             return null;

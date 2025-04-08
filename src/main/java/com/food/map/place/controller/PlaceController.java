@@ -31,8 +31,8 @@ public class PlaceController {
     }
 
     @GetMapping("/v1/random")
-    public PlaceRes getPlace(){
-        var place =  service.getRandom();
+    public PlaceRes getRandomPlace(){
+        var place =  service.getRandomPlace();
         return mapper.toRes(place);
     }
 
