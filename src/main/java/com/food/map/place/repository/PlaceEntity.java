@@ -50,5 +50,5 @@ public class PlaceEntity {
 	private LocalDateTime createdAt;
 
 	@Column(name = "is_approve")
-	private Boolean isApprove;
+	private boolean isApprove;
 }

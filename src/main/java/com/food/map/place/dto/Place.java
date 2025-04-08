@@ -22,6 +22,6 @@ public record Place(
 
     LocalDateTime createdAt,
 
-    Boolean isApprove
+    boolean isApprove
 ){
 }

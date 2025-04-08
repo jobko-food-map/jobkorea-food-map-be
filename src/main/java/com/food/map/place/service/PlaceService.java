@@ -56,7 +56,7 @@ public class PlaceService {
     @Transactional
     public void resurrection(long id){
         var findPlace = repository.findById(id).orElse(null);
-        if(ObjectUtils.isEmpty(findPlace) || findPlace.getIsApprove()){
+        if(ObjectUtils.isEmpty(findPlace) || findPlace.isApprove()){
             throw new RuntimeException("부활시킬 수 없는 장소 입니다.");
         }
 

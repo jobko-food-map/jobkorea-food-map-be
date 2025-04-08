@@ -11,6 +11,7 @@ import org.mapstruct.Mapping;
 public interface PlaceMapper {
     PlaceEntity to(Place source);
 
+    @Mapping(target = "isApprove", source = "approve")
     Place to(PlaceEntity source);
 
     @Mapping(ignore = true, target = "id")
