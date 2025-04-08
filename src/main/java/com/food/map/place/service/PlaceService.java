@@ -31,7 +31,7 @@ public class PlaceService {
     }
 
     public Place getRandom(){
-        var entities = repository.findAll();
+        var entities = repository.findByIsApprove(true);
         if(ObjectUtils.isEmpty(entities)){
             return null;
         }
