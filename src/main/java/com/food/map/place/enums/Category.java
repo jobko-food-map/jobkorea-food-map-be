@@ -12,8 +12,7 @@ public enum Category {
     KOREAN("한식"),
     WESTERN("양식"),
     JAPANESE("일식"),
-    DESSERT("디저트"),
-    COFFEE("카페");
+    DESSERT("디저트");
 
     private final String description;
 }
