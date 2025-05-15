@@ -7,6 +7,8 @@ import com.food.map.favorites.service.FavoritesService;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,9 +33,15 @@ public class FavoritesController {
     }
 
     @PostMapping("/v1/favorites")
-    public FavoritesRes save(@Valid @RequestBody FavoritesReq req){
-        var favorites = service.save(req);
-
-        return mapper.toRes(favorites);
+    public ResponseEntity<?> save(@Valid @RequestBody FavoritesReq req) {
+        try {
+            var favorites = service.save(req);
+            return ResponseEntity.ok(mapper.toRes(favorites));
+        } catch (DuplicateFavoriteException e) {
+            return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(new ErrorResponse("이미 저장된 즐겨찾기입니다."));
+        }
     }
 }
+
